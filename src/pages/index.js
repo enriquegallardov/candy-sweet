@@ -1,29 +1,53 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { graphql, Link } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
-  </Layout>
-)
+export default function Home({ data }) {
+  function convertToTitle(filename) {
+    let name = filename
+      .replace(/\.[^.]*$/, "")
+      .toLowerCase()
+      .split("-")
+    for (let i = 0; i < name.length; i++) {
+      name[i] = name[i][0].toUpperCase() + name[i].slice(1)
+    }
+    return name.join(" ")
+  }
 
-export default IndexPage
+  return (
+    <Layout>
+      <SEO title="Inicio" />
+      <h1>Nuestros productos</h1>
+      {data.allImageSharp.edges.map(({ node }) => (
+        <div key={node.id} style={{ marginBottom: `2rem` }}>
+          <h2>{convertToTitle(node.fixed.originalName)}</h2>
+          <GatsbyImage
+            image={node.gatsbyImageData}
+            alt={convertToTitle(node.fixed.originalName)}
+          ></GatsbyImage>
+        </div>
+      ))}
+    </Layout>
+  )
+}
+
+export const query = graphql`
+  query {
+    allImageSharp(
+      filter: { fixed: { originalName: { ne: "gatsby-icon.png" } } }
+    ) {
+      edges {
+        node {
+          id
+          gatsbyImageData(quality: 95, height: 800, width: 1200)
+          fixed {
+            originalName
+          }
+        }
+      }
+    }
+  }
+`
