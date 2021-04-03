@@ -7,7 +7,10 @@ import SEO from "../components/seo"
 export default function About() {
   return (
     <Layout>
-      <SEO title="Acerca de" />
+      <SEO
+        title="Acerca de"
+        description="Candy Sweet tiene como misión proveer productos de calidad y contribuir con la salud y bienestar del cliente"
+      />
       <h3>Sobre Candy Sweet</h3>
       <h5>Misión</h5>
       <p>

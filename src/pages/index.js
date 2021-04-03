@@ -19,7 +19,10 @@ export default function Home({ data }) {
 
   return (
     <Layout>
-      <SEO title="Inicio" />
+      <SEO
+        title="Inicio"
+        description="Candy Sweet es una empresa de dulces comprometida con la calidad y satisfaccion al cliente"
+      />
       <h1>Nuestros productos</h1>
       {data.allImageSharp.edges.map(({ node }) => (
         <div key={node.id} style={{ marginBottom: `2rem` }}>

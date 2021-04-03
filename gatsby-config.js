@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Candy Sweet`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Candy Sweet esta dedicado a proveer los mejores productos azucarados`,
+    author: `Enrique Gallardo`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -14,8 +14,16 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+      path: `${__dirname}/src/pages`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
