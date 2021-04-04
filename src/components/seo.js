@@ -70,7 +70,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: "robots",
-          content="index",
+          content: "index",
         },
       ].concat(meta)}
     />
