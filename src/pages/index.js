@@ -5,6 +5,48 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+export function ContactForm() {
+  return (
+    <div
+      style={{ border: "2px solid #ccc", borderRadius: "8px", padding: "2rem" }}
+    > <h2>Contáctenos</h2>
+      <form
+        method="post"
+        action="https://getform.io/f/3d0f7730-6777-40ff-afe3-44c9a4a49eee"
+      >
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Nombre"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="text"
+          name="subject"
+          id="subject"
+          placeholder="Asunto"
+          required
+        />
+        <textarea
+          name="message"
+          id="message"
+          placeholder="Escriba su mensaje aquí..."
+          required
+        />
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  )
+}
+
 export default function Home({ data }) {
   function convertToTitle(filename) {
     let name = filename
@@ -33,6 +75,7 @@ export default function Home({ data }) {
           ></GatsbyImage>
         </div>
       ))}
+      <ContactForm></ContactForm>
     </Layout>
   )
 }

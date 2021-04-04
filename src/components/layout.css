@@ -595,3 +595,41 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+textarea {
+  height: 150px;
+}
+
+button {
+  font-family: "Ubuntu", sans-serif;
+  width: 170px;
+  height: 40px;
+  line-height: 1;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 3px solid rebeccapurple;
+  background: #fff;
+  color: rebeccapurple;
+  border-radius: 40px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+button:hover {
+  background: rebeccapurple;
+  color: #fff;
+}
