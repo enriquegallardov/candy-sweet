@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
@@ -9,7 +9,9 @@ export function ContactForm() {
   return (
     <div
       style={{ border: "2px solid #ccc", borderRadius: "8px", padding: "2rem" }}
-    > <h2>Contáctenos</h2>
+    >
+      {" "}
+      <h2>Contáctenos</h2>
       <form
         method="post"
         action="https://getform.io/f/3d0f7730-6777-40ff-afe3-44c9a4a49eee"
